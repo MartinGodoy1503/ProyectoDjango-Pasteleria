@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+input:focus, textarea:focus {
+    caret-color: rgb(121, 24, 59);
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+input:focus, textarea:focus {
+    caret-color: auto; 
+}
+
+.btn-bg-color {
+    border-color: #d96b9e !important;
+    background-color: #ea65a3 !important;
+}
+
+.form-control:focus, .color-btn:focus {
+    border-color: #ae5880  !important; 
+    box-shadow: 0 0 0 0.25rem rgba(255, 129, 181, 0.25) !important;
+}
+
+body {
+    min-height: 100vh;
+    background-size: cover;background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+nav{
+    font-family: "Roboto Slab", serif !important; 
+}
+
+main{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 2px;
+}
+
+section{
+    transform-style: preserve-3d;
+    position: relative;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ESTILO PARA LAS TARJETAS SOBRE RESTRICCIONES ALIMENTICIAS O DIETAS ESPECIFICAS*/
+
+.bg-car1{
+    
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+        
+    ), url('../images/image-card1.jpg');
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-car2{
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+        
+    ), url('../images/image-card2.jpg');
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-car3{
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+        
+    ), url('../images/image-card3.jpg');
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.equal-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-color{
+    background-color: #d96b9e !important;
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffdfee;
+    border-radius: 6px;
+    text-align: center;
+}
+
+
+.box-icons i {
+    font-size: 40px;
+}
+
+.box-icons h3 {
+    font-size: 20px;
+}
+
+.product{
+    padding: 80px 0;
+}
+
+
+.card img{
+    width: 200px;
+    border-radius: 70px;
+    padding: 15px;
+}
+
+.banner{
+    padding: 50px 0;
+    margin-bottom: 80px;
+    background-color: rgb(244, 244, 222);
+}
+
+.banner h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.banner img{
+    width: 300px;
+}
+
+.empty-space {
+    height: 30vh;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.go-top-container{
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    height: 6.6;
+    z-index: -1;
+}
+
+/* ESTILO PARA GOOGLE MAPS */
+
+.cont-location{
+    background:#f7c7de;
+    border-radius: 5px;
+}
+
+iframe{
+    border-radius: 10px;    
+}
+
+.content-more-about{
+    border-radius: 5px;
+}
+
+#span-more-about{
+    color: #a22762;
+}
+
+ul{
+    list-style: none ;
+}
+.list-more-about{
+    padding: 20px;
+}
+
+i{
+    color: #b82f71;
+    width: 40px !important;
+}
+
+.title-location{
+    color: #a22762;
+}
+
+@media only screen and (max-width:575px){
+    .cont-location{
+        background-color: #f7c7de;
+        border-radius: 0;
+        border: 0;
+    } 
+}
