@@ -12,17 +12,35 @@
 </head>
 <body>
     {% block content %}
-    <h1>Crear Contacto</h1>
-    <form id="form-contact" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="msg-valid-nom"></div>
-        <div class="msg-valid-em"></div>
-        <div class="msg-valid-cel"></div>
-        <div class="msg-valid-msg"></div>
-        <button type="submit">Enviar</button>
-    </form>
+    
+    <section class="contact magicpattern">
+        <div id="target-section" class="container mb-3 mb-lg-5 mt-5">
+            <form id="form-contact" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Contacto</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam doloribus autem!
+                        </p>
+                    </div>
+                    <div class="container mt-5">
+                        <div class="form-container">
+                            <div class="mb-3">
+                                {{ form.as_p }}
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="msg-valid-nom"></div>
+                    <div class="msg-valid-em"></div>
+                    <div class="msg-valid-cel"></div>
+                    <div class="msg-valid-msg"></div>
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </section>
     {% endblock %}
-    <script src="{% static 'task/js/scripts.js' %}"></script>
+    <script src="{% static 'myapp/js/scripts.js' %}"></script>
 </body>
 </html>

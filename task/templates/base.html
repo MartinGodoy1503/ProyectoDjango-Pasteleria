@@ -28,9 +28,15 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
-                <a onclick="scrollToTarget()" class="nav-link" href="/create_contact" tabindex="-1" aria-disabled="true">Contacto</a>
-            </li>            
+                <a class="nav-link" href="{% url 'create_contact' %}" tabindex="-1">Contacto</a>
+            </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}?next={% url 'create_contact' %}" tabindex="-1">Contacto</a>
+                </li>
+            {% endif %}
             {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/logout">Cerrar sesión</a>
@@ -40,7 +46,7 @@
                     <a class="nav-link active" aria-current="page" href="/signup">Registrarse</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/signin">Abrir sesión</a>
+                    <a class="nav-link active" aria-current="page" href="/login">Abrir sesión</a>
                 </li>
             {% endif %}
             </ul>
