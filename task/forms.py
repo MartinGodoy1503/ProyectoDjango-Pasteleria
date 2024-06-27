@@ -1,24 +1,22 @@
-from django.forms import ModelForm
-
-# app_name/forms.py
 from django import forms
-from .models import Contact
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import CustomUser, GeneroCliente
 
-class ContactForm(forms.ModelForm):
+class CustomUserCreationForm(UserCreationForm):
+    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Confirmar contraseña', widget=forms.PasswordInput)
+
     class Meta:
-        model = Contact
-        fields = ['nombre', 'email', 'celular', 'mensaje']
-    
-    def clean_mensaje(self):
-        mensaje = self.cleaned_data.get('mensaje')
-        words = mensaje.split()
-        if len(words) < 10:
-            raise forms.ValidationError('El mensaje debe tener al menos 10 palabras.')
-        return mensaje
+        model = CustomUser
+        fields = ('username', 'correo_electronico', 'id_genero', 'id_estado')
 
-    def clean_celular(self):
-        celular = self.cleaned_data.get('celular')
-        if not celular.startswith('9') or len(celular) != 9:
-            raise forms.ValidationError('El número de celular no es válido.')
-        return celular
-
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['id_genero'].queryset = GeneroCliente.objects.all()
+        
+class CustomUserChangeForm(UserChangeForm):
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'nombre_usuario', 'correo_electronico', 'id_genero', 'id_estado')
+        
+        

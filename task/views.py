@@ -1,9 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
-from .forms import ContactForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User
+from .models import CustomUser
+from .forms import CustomUserCreationForm
 from django.contrib.auth import login, logout, authenticate
 # Create your views here.
 
@@ -13,46 +13,46 @@ def home (request):
 #VISTA PARA CREAR UN USUARIO 
 
 def signup(request):
-    if request.method == 'GET':
-        return render(request, 'signup.html', {"form": UserCreationForm})
-    else:
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            correo_electronico = form.cleaned_data['correo_electronico']
+            password1 = form.cleaned_data['password1']
+            id_genero = form.cleaned_data['id_genero']
+            id_estado = form.cleaned_data['id_estado']
 
-        if request.POST["password1"] == request.POST["password2"]:
-            
+            if password1 != form.cleaned_data['password2']:
+                context = {
+                    'form': form,
+                    'username': username,
+                    'password_error': "Las contraseñas no coinciden."
+                }
+                return render(request, 'signup.html', context)
+
             try:
-                user = User.objects.create_user(
-                    request.POST["username"], password=request.POST["password1"])
+                user = form.save(commit=False)
+                user.set_password(password1)
                 user.save()
                 login(request, user)
                 return redirect('home')
-            
             except IntegrityError:
-                return render(request, 'signup.html', {"form": UserCreationForm, "error": "El usuario ya existe."})
-            
-        return render(request, 'signup.html', {"form": UserCreationForm, "error": "Contraseñas no coinciden."})
+                context = {
+                    'form': form,
+                    'username': username,
+                    'username_error': "El usuario ya existe."
+                }
+                return render(request, 'signup.html', context)
+
+    else:
+        form = CustomUserCreationForm()
+
+    return render(request, 'signup.html', {'form': form})
 
 #VISTA EN DESHUSO 
 
 def tasks (request):
     return render(request, 'tasks.html')   
-
-#VISTA PARA LA CREACION DE UN FORMULARIO DE CONTACTO
-
-@login_required
-def create_contact(request):
-    if request.method == 'GET':
-        return render(request, 'create_contact.html', {'form': ContactForm()})
-    else:
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            contact = form.save(commit=False)
-            contact.user = request.user
-            try:
-                contact.save()
-                return redirect('success_page')
-            except IntegrityError:
-                form.add_error(None, 'Error al guardar el formulario. Inténtalo de nuevo.')
-        return render(request, 'create_contact.html', {'form': form})
       
 
 

@@ -212,6 +212,15 @@ i{
     color: #a22762;
 }
 
+.custom-select {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    width: 100%; 
+    box-sizing: border-box;
+}
+
 @media only screen and (max-width:575px){
     .cont-location{
         background-color: #f7c7de;
