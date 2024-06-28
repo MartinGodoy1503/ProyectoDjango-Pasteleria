@@ -22,15 +22,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home', views.home, name='home'),
     path('signup/', views.signup, name='signup'),
-    path('tasks/', views.tasks, name='tasks'),
-    path('logout/', views.signout, name='logout'),
-<<<<<<< HEAD
-    path('signin/', views.signin, name='signin'),
-
-=======
-    path('login/', views.user_login, name='login'),
-    path('user_not_auth_contact/', views.create_contact, name='user_not_auth_contact'),
-    path('create_contact/', views.create_contact, name='create_contact'),
-    path('create_contact/success/', views.success, name='success_page')
->>>>>>> bf7a6c039ba13676b52daa33e89b6d914be58d8b
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    
+    #URls de Producto
+    
+    path('productos/', views.producto_list, name='producto_list'),
+    path('productos/<int:pk>/', views.producto_detail, name='producto_detail'),
+    path('productos/new/', views.producto_create, name='producto_create'),
+    path('productos/<int:pk>/edit/', views.producto_update, name='producto_update'),
+    path('productos/<int:pk>/delete/', views.producto_delete, name='producto_delete'),
 ]

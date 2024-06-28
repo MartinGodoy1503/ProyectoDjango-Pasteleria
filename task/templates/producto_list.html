@@ -1,0 +1,40 @@
+{% extends 'base-copy.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+    <div class="container-table mt-5 pt-4 p-4">
+        <h2>Lista de Productos</h2>
+        <a href="{% url 'producto_create' %}" class="btn btn-primary mt-2 btn-bg-color">Crear Producto</a>
+
+        <table class="table table-striped table-hover mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.id_producto }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td>{{ producto.stock }}</td>
+                    <td>
+                        <a href="{% url 'producto_update' producto.id_producto %}" class="btn btn-warning mb-2 ">Editar</a>
+                        <a href="{% url 'producto_delete' producto.id_producto %}" class="btn btn-danger mb-2">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+

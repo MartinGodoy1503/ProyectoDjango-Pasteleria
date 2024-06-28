@@ -1,12 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Signin</h1>
-{{error}}
-<form action="/login/" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button class="button bg-light">Entrar</button>
-</form>
+<div class="container">
+    <h2>Iniciar Sesión</h2>
+    
+    <!-- Mostrar mensajes de error y éxito -->
 
+    <form method="post" class="form-group">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="mb-3">
+            <label for="username">Correo Electrónico:</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="text-danger">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="password">Contraseña:</label>
+            {{ form.password }}
+            {% if form.password.errors %}
+                <div class="text-danger">
+                    {{ form.password.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+    </form>
+</div>
 {% endblock %}

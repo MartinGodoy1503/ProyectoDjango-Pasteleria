@@ -1,0 +1,54 @@
+{% extends 'base-copy.html' %}
+{% load custom_filters %}
+
+{% block content %}
+
+<div class="container">
+    <div class="container-table mt-5 pt-4 p-4">
+      <h2>{% if action == 'create' %}Crear Producto{% else %}Editar Producto{% endif %}</h2>
+      <form method="post" class="form-group">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+    
+          <div class="mb-3">
+              <label for="{{ form.descripcion.id_for_label }}">Descripción:</label>
+              {{ form.descripcion|add_class:"form-control" }}
+              {% if form.descripcion.errors %}
+                  <div class="text-danger">
+                      {% for error in form.descripcion.errors %}
+                          <p>{{ error }}</p>
+                      {% endfor %}
+                  </div>
+              {% endif %}
+          </div>
+    
+          <div class="mb-3">
+              <label for="{{ form.precio.id_for_label }}">Precio:</label>
+              {{ form.precio|add_class:"form-control" }}
+              {% if form.precio.errors %}
+                  <div class="text-danger">
+                      {% for error in form.precio.errors %}
+                          <p>{{ error }}</p>
+                      {% endfor %}
+                  </div>
+              {% endif %}
+          </div>
+    
+          <div class="mb-3">
+              <label for="{{ form.stock.id_for_label }}">Stock:</label>
+              {{ form.stock|add_class:"form-control" }}
+              {% if form.stock.errors %}
+                  <div class="text-danger">
+                      {% for error in form.stock.errors %}
+                          <p>{{ error }}</p>
+                      {% endfor %}
+                  </div>
+              {% endif %}
+          </div>
+    
+          <button type="submit" class="btn btn-primary btn-bg-color mb-2">{% if action == 'create' %}Crear{% else %}Guardar{% endif %}</button>
+      </form>
+      <a href="{% url 'producto_list' %}" class="btn btn-secondary mb-2">Cancelar</a>
+    </div>
+</div>
+{% endblock %}

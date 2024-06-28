@@ -5,15 +5,6 @@
 {% block content %}
 <div class="container">
     <h2>Registro</h2>
-    
-    <!-- Mostrar mensajes de error y éxito -->
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
 
     <form action="/signup/" method="POST" class="mb-4">
         {% csrf_token %}
@@ -65,8 +56,11 @@
                 </div>
             {% endif %}
         </div>
+        
+        <button type="submit" class="btn btn-bg-color" style="color: rgb(255, 255, 255);">Signup</button>
 
-        <button type="submit" class="btn btn-bg-color" style="color: rgb(182, 37, 116);">Signup</button>
+
     </form>
+    <a href="/login">Haz click aquí si ya posees una cuenta.</a>
 </div>
 {% endblock %}

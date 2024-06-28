@@ -1,0 +1,15 @@
+{% extends 'base-copy.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="container-table mt-5 pt-4 p-4">
+    <h2>¿Estás seguro que deseas eliminar el producto {{ producto.descripcion }}?</h2>
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger mt-4 mb-2">Eliminar</button>
+      </form>
+      <a href="{% url 'producto_list' %}" class="btn btn-secondary mb-2">Cancelar</a>
+  </div>
+</div>
+  
+{% endblock %}
