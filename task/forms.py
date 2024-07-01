@@ -18,7 +18,7 @@ class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['id_genero'].queryset = GeneroCliente.objects.all()
-        
+                
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
