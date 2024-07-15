@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital@1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital@1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital@1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+.libre-baskerville-regular-italic {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.libre-baskerville-bold {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
 
 *{
     box-sizing: border-box;
@@ -130,7 +151,6 @@ section{
     flex-direction: column;
     justify-content: space-between;
     background-color: #ffdfee;
-    border-radius: 6px;
     text-align: center;
 }
 
@@ -148,11 +168,6 @@ section{
 }
 
 
-.card img{
-    width: 200px;
-    border-radius: 70px;
-    padding: 15px;
-}
 
 .banner{
     padding: 50px 0;
@@ -215,7 +230,7 @@ ul{
 }
 
 i{
-    color: #b82f71;
+    color: rgb(211, 89, 144);
     width: 40px !important;
 }
 
@@ -223,13 +238,44 @@ i{
     color: #a22762;
 }
 
+
+.separator {
+    background-color: rgb(255, 200, 225);; 
+    padding: 90px 0;
+    position: relative;
+    text-align: right;
+    height: 200px;
+}
+
+.image-container img:hover {
+    cursor: crosshair;
+    opacity: 1;
+    filter: contrast(120%);
+}
+
 .custom-select {
     background-color: #f2f2f2;
     border: 1px solid #ccc;
     padding: 8px;
     border-radius: 4px;
-    width: 100%; 
+    width: 150px; 
     box-sizing: border-box;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem; /* Tamaño del icono */
+    color: #c90564; /* Color del icono */
+    z-index: 99; /* Asegura que esté por encima de otros elementos */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el icono */
+    transition: opacity 0.3s ease;
+
+}
+
+.back-to-top:hover {
+   color: #a22762;
 }
 
 @media only screen and (max-width:575px){

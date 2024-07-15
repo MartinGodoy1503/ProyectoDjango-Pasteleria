@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+
+<a href="#" onclick="topFunction()" class="back-to-top" id="backToTopBtn" title="Regresar arriba">
+  <i class="bi bi-arrow-up-circle-fill"></i>
+</a>
+
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -46,16 +51,15 @@
     <div class="container">
 
         <div class="row">
-
+          <div class="text-center">
+            <h2 class="libre-baskerville-regular-italic ">Trabajo de acuerdo a tus necesidades</h2>
+          </div>
             <div class="col-12-md-12 col-lg-4 mb-3 mt-5">
                 <div class="card text-white text-center bg-car1 pb-5 pt-5 equal-height">
-                    <div class="card-boddy">
-                        <h3 class="card-title">Pastelería Vegana</h3>
-                        <p class="p-2"> Lorem ipsum dolor sit amet consectetur quibusdam adipisicing elit. 
-                            Doloribus quo aperiam quibusdam nisi aliquid blanditiis quos repellat aliquam inventore.
+                    <div class="card-boddy ">
+                        <h3 class="card-title libre-baskerville-regular">Veganismo</h3>
+                        <p class="p-2"> ¿Eres vegana/o? No te preocupes! <br> Tu pedido será elaborado con materia prima de alta calidad, totalmente libre de productos de origen animal.
                         </p>
-
-                        <button class="btn btn-outline-light"> Saber más</button>
                     </div>
                 </div>
             </div>
@@ -63,11 +67,9 @@
             <div class="col-12-md-12 col-lg-4 mb-3 mt-5">
                 <div class="card text-white text-center bg-car2  pb-5 pt-5 equal-height">
                     <div class="card-boddy">
-                        <h3 class="card-title">Pastelería Celiaca</h3>
-                        <p class="p-2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis corrupti, rem, tempore, eveniet doloremque debitis et porro in molestiae aut!
+                        <h3 class="card-title libre-baskerville-regular">Intolerancia <br> al gluten</h3>
+                        <p class="p-2"> ¿Eres celiaca/o? Estás en buenas manos. En esta pastelería trabajamos con productos libres de gluten, para que disfrutes sin problemas!    
                         </p>
-
-                        <button class="btn btn-outline-light"> Saber más</button>
                     </div>
                 </div>
             </div>
@@ -75,12 +77,9 @@
             <div class="col-12-md-12 col-lg-4 mb-3 mt-5">
                 <div class="card text-white text-center bg-car3  pb-5 pt-5 equal-height">
                     <div class="card-boddy">
-                        <h3 class="card-title">Restricciones alimentarias</h3>
-                        <p class="p-2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Doloribus quo aperiam quibusdam nisi aliquid blanditiis quos repellat aliquam inventore
+                        <h3 class="card-title libre-baskerville-regular">Intolerancia <br> a la Lactosa</h3>
+                        <p class="p-2"> Si eres intolerante a la lactosa no tienes de que preocuparte, tu pedido será elaborado sin ningún producto de origen lácteo. 
                         </p>
-
-                        <button class=" btn btn-outline-light"> Saber más</button>
                     </div>
                 </div>
             </div>
@@ -88,15 +87,15 @@
     </div>
   </section>
 
-  <section class="section-icons">
+  <section class="section-icons mb-5">
     <div class="container">
-        <div class="row">
+        <div class="row mb-5">
 
             <div class="col-12 col-md-12 col-lg-4 box-icons mt-5 mb-2">
                 <div class="d-flex align-items-center">
                     <i class="bi bi-tag-fill"></i>
                     <div class="ms-4">
-                        <h3>Precios justos</h3>
+                        <h3 class="libre-baskerville-bold ">Precios justos</h3>
                         <p>
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, numquam!
                         </p>
@@ -108,7 +107,7 @@
                 <div class="d-flex align-items-center">
                     <i class="bi bi-heart-fill"></i>
                     <div class="ms-4">
-                        <h3>Preocupación</h3>
+                        <h3 class="libre-baskerville-bold ">Preocupación</h3>
                         <p>
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, numquam!
                         </p>
@@ -120,7 +119,7 @@
                 <div class="d-flex align-items-center">
                     <i class="bi bi-hand-thumbs-up-fill"></i>
                     <div class="ms-4">
-                        <h3>Calidad</h3>
+                        <h3 class="libre-baskerville-bold ">Calidad</h3>
                         <p>
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, numquam!
                         </p>
@@ -131,18 +130,68 @@
     </div>
   </section>
 
-  <section>
-    <div class="card w-50 p-3 mt-5" >
-      <div class="card-body mb-3">
-        <h5 class="card-title">Puedes encontrarme en:</h5>
+  <section class="product">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="{% static 'task/images/zanahoria.png' %}" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Descripción del producto.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                  <img src="{% static 'task/images/zanahoria.png' %}" class="card-img-top img-fluid" alt="...">
+                  <div class="card-body">
+                      <p class="card-text">Descripción del producto.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card">
+                <img src="{% static 'task/images/zanahoria.png' %}" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Descripción del producto.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+          <div class="card">
+              <img src="{% static 'task/images/zanahoria.png' %}" class="card-img-top img-fluid" alt="...">
+              <div class="card-body">
+                  <p class="card-text">Descripción del producto.</p>
+              </div>
+          </div>
       </div>
-      <div class="ratio ratio-1x1">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4729.816978529027!2d-71.61481743771499!3d-33.04367865948336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0d76107fd55%3A0x77baf68d119f6eeb!2sDUOC%20UC%20Sede%20Valpara%C3%ADso!5e0!3m2!1ses-419!2scl!4v1719804273059!5m2!1ses-419!2scl"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div> 
+        </div>
     </div>
-  </section>
-  
+</section>  
 
+  <section>
+
+    <div class="container">
+      <div class="row">
+          <div class="text-center">
+              <h2 class="libre-baskerville-regular-italic mt-5">Acerca de mi emprendimiento</h2>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-12 col-md-6 col-lg-6 mb-3 mt-5">
+              <div class="p-3 bg-light">Mi nombre es María Angelica y llevo trabajando en la pastelería y repostería hace más de 10 años</div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 mb-3 mt-5">
+              <div class="p-3 border bg-light">Content 2
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4729.816978529027!2d-71.61481743771499!3d-33.04367865948336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0d76107fd55%3A0x77baf68d119f6eeb!2sDUOC%20UC%20Sede%20Valpara%C3%ADso!5e0!3m2!1ses-419!2scl!4v1719804273059!5m2!1ses-419!2scl"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+          </div>
+      </div>
+  </div>
+  </section>
+
+  
+  
 
 {% endblock %}
 
