@@ -109,6 +109,7 @@ section{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 0;
 }
 
 .bg-car2{
@@ -121,6 +122,9 @@ section{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    border-radius: 0;
+    border: 10px solid #2c3e50;
 }
 
 .bg-car3{
@@ -141,8 +145,18 @@ section{
     height: 100%;
 }
 
+.card {
+    margin: 0;
+    padding: 0;
+}
+
 .card-color{
     background-color: #d96b9e !important;
+}
+
+.card-text{
+    color: white !important;
+    font-size: larger !important;
 }
 
 .card-body {
@@ -150,10 +164,14 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #ffdfee;
+    background-color:   #ca8ea7;
     text-align: center;
+    border-radius: 0;
 }
 
+.custom-card {
+    border-radius: 0 !important;
+}
 
 .box-icons i {
     font-size: 40px;
@@ -230,14 +248,18 @@ ul{
 }
 
 i{
-    color: rgb(211, 89, 144);
+    color: rgb(216, 101, 153);
     width: 40px !important;
+}
+
+.whatsapp-icon {
+    font-size: 1rem; 
+    vertical-align: middle;
 }
 
 .title-location{
     color: #a22762;
 }
-
 
 .separator {
     background-color: rgb(255, 200, 225);; 
@@ -262,14 +284,30 @@ i{
     box-sizing: border-box;
 }
 
+.icons-section{
+    color: rgb(255, 255, 255);
+}
+
+
+.custom-container {
+    background-color: #ffd4e2; 
+    border: 1px solid #ccc ;
+    border-style: groove !important;   
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center !important;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+
 .back-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    font-size: 2rem; /* Tamaño del icono */
-    color: #c90564; /* Color del icono */
-    z-index: 99; /* Asegura que esté por encima de otros elementos */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el icono */
+    font-size: 2rem; 
+    color: #c90564; 
+    z-index: 99; 
+    cursor: pointer; 
     transition: opacity 0.3s ease;
 
 }
@@ -278,6 +316,72 @@ i{
    color: #a22762;
 }
 
+.spikes {
+    position: relative;
+    background: #d4a0b3;
+    height: 35vh;
+}
+
+.section-color{
+    background: #d4a0b3;
+}
+
+.container-m {
+    display: flex;
+    width: 100%;
+    padding: 4% 2%;
+    box-sizing: border-box;
+    height: 100vh;
+  }
+  
+.box {
+    flex: 1;
+    overflow: hidden;
+    transition: .5s;
+    margin: 0 2%;
+    box-shadow: 0 20px 30px rgba(0,0,0,.1);
+    line-height: 0;
+}
+
+.box > img {
+    width: 200%;
+    height: calc(100% - 10vh);
+    object-fit: cover;
+    transition: .5s;
+    filter: brightness(70%);
+}
+
+.box > span {
+    font-size: 3.8vh;
+    display: block;
+    text-align: center;
+    height: 10vh;
+    line-height: 2.6;
+}
+
+.box:hover {
+    flex: 1 1 50%;
+}
+
+.box:hover > img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(90%);
+}
+
+.spikes::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 100%;
+    z-index: 10;
+    display: block;
+    height: 50px;
+    background-size: 50px 100%;
+    background-image: linear-gradient(135deg,  #d4a0b3 25%, transparent 25%), linear-gradient(225deg, #d4a0b3 25%, transparent 25%);
+    background-position: 0 0;
+}
 @media only screen and (max-width:575px){
     .cont-location{
         background-color: #f7c7de;

@@ -24,10 +24,7 @@
                         <a class="nav-link active" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="#" onclick="scrollToSection('Productos-Section')">Productos</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -75,6 +72,46 @@
     {% block content %}
         
     {% endblock %}
+
+
+    <footer class="bg-dark text-white pt-4 pb-2">
+        <div class="container">
+            <div class="row">
+                <!-- Enlaces rápidos -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="libre-baskerville-regular">Enlaces rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Inicio</a></li>
+                        <li><a href="#" class="text-white">Sobre nosotros</a></li>
+                        <li><a href="#" class="text-white">Servicios</a></li>
+                        <li><a href="#" class="text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                <!-- Información de contacto -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="libre-baskerville-regular">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-geo-alt-fill"></i> Calle Falsa 123, Ciudad, País</li>
+                        <li><i class="bi bi-telephone-fill"></i> +123 456 7890</li>
+                        <li><i class="bi bi-envelope-fill"></i> correo@ejemplo.com</li>
+                    </ul>
+                </div>
+                <!-- Redes sociales -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="libre-baskerville-regular">Síguenos</h5>
+                    <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white me-2"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <p class="mb-0">&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script>
@@ -93,6 +130,14 @@
         function topFunction() {
             document.body.scrollTop = 0; 
             document.documentElement.scrollTop = 0; 
+    }
+
+
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
     }
     </script>   
     <script src="{% static 'task/js/scripts.js' %}"></script>
