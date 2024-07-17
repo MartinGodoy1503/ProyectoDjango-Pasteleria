@@ -3,6 +3,7 @@ from django.db import IntegrityError
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
+from django.contrib.auth import login
 from .models import CustomUser, Producto
 from .forms import CustomAuthenticationForm, CustomUserCreationForm, ProductoForm
 from django.contrib.auth import login as auth_login, authenticate,  logout as auth_logout
@@ -18,37 +19,22 @@ def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
-            correo_electronico = form.cleaned_data['correo_electronico']
-            password1 = form.cleaned_data['password1']
-            id_genero = form.cleaned_data['id_genero']
-            id_estado = form.cleaned_data['id_estado']
-
-            if password1 != form.cleaned_data['password2']:
-                context = {
-                    'form': form,
-                    'username': username,
-                    'password_error': "Las contraseñas no coinciden."
-                }
-                return render(request, 'signup.html', context)
-
+            print("Formulario válido, guardando usuario...")
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password1'])
             try:
-                user = form.save(commit=False)
-                user.set_password(password1)
                 user.save()
                 login(request, user)
-                return redirect('home')
+                print("Usuario guardado correctamente, redirigiendo...")
+                return redirect('home')  # Redirige a la página de inicio después del registro exitoso
             except IntegrityError:
-                context = {
-                    'form': form,
-                    'username': username,
-                    'username_error': "El usuario ya existe."
-                }
-                return render(request, 'signup.html', context)
-
+                form.add_error('correo_electronico', "El correo electrónico ya está en uso.")
+                print("Error de integridad al guardar el usuario.")
+        else:
+            print("Formulario inválido:", form.errors)
     else:
         form = CustomUserCreationForm()
-
+    
     return render(request, 'signup.html', {'form': form})
 
 #LOGIN USUARIO CUSTOM
@@ -61,14 +47,16 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 auth_login(request, user)
+                print(f"Inicio de sesión exitoso para usuario: {user.username}")
                 messages.success(request, f"Bienvenido, {user.username}")
-                return redirect('home')
+                return redirect('home')  
             else:
                 messages.error(request, "Correo electrónico o contraseña incorrectos.")
         else:
             messages.error(request, "Correo electrónico o contraseña incorrectos.")
     else:
         form = CustomAuthenticationForm()
+    
     return render(request, 'login.html', {'form': form})
 
 def logout_view(request):

@@ -47,7 +47,6 @@ class CustomUserManager(BaseUserManager):
     def get_by_natural_key(self, correo_electronico):
         return self.get(correo_electronico=correo_electronico)
 
-
 class CustomUser(AbstractUser):
     nombre_usuario = models.CharField(max_length=50, unique=True)
     correo_electronico = models.EmailField(max_length=100, unique=True)
@@ -56,13 +55,12 @@ class CustomUser(AbstractUser):
     id_estado = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True, blank=True)
 
     USERNAME_FIELD = 'correo_electronico'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['nombre_usuario']
 
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.nombre_usuario
-
+        return self.correo_electronico
 
 class Producto(models.Model):
     id_producto = models.AutoField(primary_key=True)

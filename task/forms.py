@@ -13,17 +13,17 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'correo_electronico', 'id_genero', 'id_estado')
+        fields = ('nombre_usuario', 'correo_electronico', 'id_genero', 'id_estado')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['id_genero'].queryset = GeneroCliente.objects.all()
-                
+
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
-        fields = ('username', 'nombre_usuario', 'correo_electronico', 'id_genero', 'id_estado')
-        
+        fields = ('nombre_usuario', 'correo_electronico', 'id_genero', 'id_estado')
+
 #INICIO DE SESION CON EL USUARIO
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(label='Correo Electrónico', widget=forms.TextInput(attrs={'class': 'form-control'}))

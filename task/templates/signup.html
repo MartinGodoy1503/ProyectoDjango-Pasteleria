@@ -3,64 +3,69 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <h2>Registro</h2>
 
-    <form action="/signup/" method="POST" class="mb-4">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
+<body class="body-background">
+    <div class="content p-4">
+        <div class="container signup-container p-4 mt-5 mb-5">
+            <h2>Registro</h2>
         
-        <div class="mb-3">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" class="form-control" placeholder="Enter your username">
-            {% if form.username.errors %}
-                <div class="text-danger">
-                    {{ form.username.errors }}
+            <form action="{% url 'signup' %}" method="POST" class="mb-4">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                
+                <div class="mb-3">
+                    <label for="nombre_usuario">Nombre de usuario:</label>
+                    <input type="text" name="nombre_usuario" id="nombre_usuario" class="form-control" placeholder="Enter your username">
+                    {% if form.nombre_usuario.errors %}
+                        <div class="text-danger">
+                            {{ form.nombre_usuario.errors }}
+                        </div>
+                    {% endif %}
                 </div>
-            {% endif %}
-        </div>
-
-        <div class="mb-3">
-            <label for="correo_electronico">Correo electronico:</label>
-            <input type="email" name="correo_electronico" id="correo_electronico" class="form-control" placeholder="Enter your email">
-            {% if form.correo_electronico.errors %}
-                <div class="text-danger">
-                    {{ form.correo_electronico.errors }}
-                </div>
-            {% endif %}
-        </div>
-
-        <input type="hidden" name="id_estado" value="1">
-
-        <div class="mb-3 pb-3">
-            <label for="id_genero" class="form-label">Género:</label>
-            {{ form.id_genero }}
-        </div>
-
-        <div class="mb-3">
-            <label for="password1">Contraseña:</label>
-            <input type="password" name="password1" id="password1" class="form-control" placeholder="Enter your password">
-            {% if form.password1.errors %}
-                <div class="text-danger">
-                    {{ form.password1.errors }}
-                </div>
-            {% endif %}
-        </div>
-
-        <div class="mb-3">
-            <label for="password2">Confirmar contraseña:</label>
-            <input type="password" name="password2" id="password2" class="form-control" placeholder="Confirm your password">
-            {% if form.password2.errors %}
-                <div class="text-danger">
-                    {{ form.password2.errors }}
-                </div>
-            {% endif %}
-        </div>
         
-        <button type="submit" class="btn btn-bg-color" style="color: rgb(255, 255, 255);">Signup</button>
+                <div class="mb-3">
+                    <label for="correo_electronico">Correo electrónico:</label>
+                    <input type="email" name="correo_electronico" id="correo_electronico" class="form-control" placeholder="Enter your email">
+                    {% if form.correo_electronico.errors %}
+                        <div class="text-danger">
+                            {{ form.correo_electronico.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+        
+                <input type="hidden" name="id_estado" value="1">
+        
+                <div class="mb-3 pb-3">
+                    <label for="id_genero" class="form-label">Género:</label>
+                    {{ form.id_genero }}
+                </div>
+        
+                <div class="mb-3">
+                    <label for="password1">Contraseña:</label>
+                    <input type="password" name="password1" id="password1" class="form-control" placeholder="Enter your password">
+                    {% if form.password1.errors %}
+                        <div class="text-danger">
+                            {{ form.password1.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+        
+                <div class="mb-3">
+                    <label for="password2">Confirmar contraseña:</label>
+                    <input type="password" name="password2" id="password2" class="form-control" placeholder="Confirm your password">
+                    {% if form.password2.errors %}
+                        <div class="text-danger">
+                            {{ form.password2.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <button type="submit" class="btn btn-bg-color" style="color: rgb(255, 255, 255);">Registrarse</button>
+        
+            </form>
+            <a href="/login">Haz click aquí si ya posees una cuenta.</a>
+        </div>
+    </div>
+</body>
 
-
-    </form>
-    <a href="/login">Haz click aquí si ya posees una cuenta.</a>
-</div>
 {% endblock %}
